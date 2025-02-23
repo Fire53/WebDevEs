@@ -1,14 +1,14 @@
 const TaskController = (function (model, view) {
     function init() {
         view.init();
-        view.renderTasks(model.tasks);
+        view.renderTasks(model.getTasks());
         view.bindAddTask(handleAddTask);
         view.bindDeleteTask(handleDeleteTask);
         view.bindToggleTask(handleToggleTask);
     }
 
     function handleAddTask() {
-        const title = view.getTaskInput().trim();
+        const taskTitle = view.getTaskInput().trim();
         if (taskTitle === '') return;
         const task = {
             id: Date.now().toString(),

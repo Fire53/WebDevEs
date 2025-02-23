@@ -1,4 +1,4 @@
-const TaskView = function () {
+const TaskView = (function () {
     const app = document.getElementById('taskApp');
 
     function init(){
@@ -69,6 +69,5 @@ const TaskView = function () {
         bindAddTask,
         bindDeleteTask,
         bindToggleTask
-    }
-    
-}();
+    };   
+})();
