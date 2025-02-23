@@ -28,5 +28,12 @@ const TaskView = function () {
         });
     }
 
-    
+    function getTaskInput() {
+        return document.getElementById('taskInput').value;
+    }
+
+    function clearTaskInput() {
+        document.getElementById('taskInput').value = '';
+    }
+
 }();
