@@ -36,4 +36,11 @@ const TaskView = function () {
         document.getElementById('taskInput').value = '';
     }
 
+    function bindAddTask(handler) {
+        document.getElementById('addTaskBtn').addEventListener('click', handler);
+        document.getElementById('taskInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') handler();
+        });
+    }
+    
 }();
