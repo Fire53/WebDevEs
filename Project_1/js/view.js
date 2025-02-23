@@ -42,5 +42,33 @@ const TaskView = function () {
             if (e.key === 'Enter') handler();
         });
     }
+
+    function bindDeleteTask(handler) {
+        document.getElementById('taskList').addEventListener('click', function (e) {
+            if (e.target.classList.contains('delete-btn')) {
+                const id = e.target.getAttribute('data-id');
+                handler(id);
+            }
+        });
+    }
+
+    function bindToggleTask(handler) {
+        document.getElementById('taskList').addEventListener('change', function (e) {
+            if (e.target.type === 'checkbox') {
+                const id = e.target.getAttribute('data-id');
+                handler(id);
+            }
+        });
+    }
+
+    return{
+        init,
+        renderTasks,
+        getTaskInput,
+        clearTaskInput,
+        bindAddTask,
+        bindDeleteTask,
+        bindToggleTask
+    }
     
 }();
