@@ -22,10 +22,21 @@ const TaskModel = (function () {
         saveTasks(tasks);
     }
 
+    function toggleTask(id) { //Segno o tolgo completamento
+        let tasks = getTasks();
+        tasks = tasks.map(task => {
+            if (task.id === id) {
+                task.completed = !task.completed;
+            }
+            return task;
+        });
+        saveTasks(tasks);
+    }
     return {
         getTasks,
         addTask,
-        removeTask
+        removeTask,
+        toggleTask
     };
 
 })();
