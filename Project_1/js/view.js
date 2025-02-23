@@ -11,6 +11,22 @@ const TaskView = function () {
         `;
     }
 
-    
+    function renderTasks(tasks) {
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = '';
+        tasks.forEach(task => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `
+                <div>
+                    <input type="checkbox" class="form-check-input me-2" ${task.completed ? 'checked' : ''} data-id="${task.id}">
+                    <span ${task.completed ? 'style="text-decoration: line-through;"' : ''}>${task.title}</span>
+                </div>
+                <button class="btn btn-danger btn-sm delete-btn" data-id="${task.id}">Elimina</button>
+            `;
+            taskList.appendChild(li);
+        });
+    }
 
+    
 }();
